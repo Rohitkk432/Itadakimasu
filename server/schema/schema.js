@@ -59,6 +59,20 @@ const DishType = new GraphQLObjectType({
     })
 });
 
+const CategoryType = new GraphQLObjectType({
+    name: 'Category',
+    fields: ( ) => ({
+        category: { type: GraphQLString },
+    })
+});
+
+const SubCategoryType = new GraphQLObjectType({
+    name: 'SubCategory',
+    fields: ( ) => ({
+        subcategory: { type: GraphQLString },
+    })
+});
+
 // const categoryType = new GraphQLObjectType({
 //     name: 'Category',
 //     fields: ( ) => ({
@@ -77,6 +91,13 @@ const RootQuery = new GraphQLObjectType({
         //         return Author.findById(args.id);
         //     }
         // },
+        restaurant:{
+            type: RestaurantType,
+            args: { id: { type: GraphQLString } },
+            resolve(parent, args){
+                return Restaurant.findById(args.id);
+            }
+        },
         restaurants: {
             type: new GraphQLList(RestaurantType),
             resolve(parent, args){
@@ -99,6 +120,20 @@ const RootQuery = new GraphQLObjectType({
             type: new GraphQLList(DishType),
             resolve(parent, args){
                 return Dish.find({});
+            }
+        },
+        categories:{
+            type: new GraphQLList(CategoryType),
+            args: { restaurantId: { type: GraphQLString } },
+            resolve(parent, args){
+                return Dish.find({'restaurantId':args.restaurantId});
+            }
+        },
+        subcategories:{
+            type: new GraphQLList(SubCategoryType),
+            args: { category: { type: GraphQLString } },
+            resolve(parent, args){
+                return Dish.find({'category':args.category});
             }
         }
     }
