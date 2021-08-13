@@ -55,7 +55,7 @@ const DishType = new GraphQLObjectType({
         description: { type: GraphQLString },
         category: { type: GraphQLString },
         subcategory: { type: GraphQLString },
-
+        restaurantId: { type: GraphQLString }
     })
 });
 
@@ -134,6 +134,13 @@ const RootQuery = new GraphQLObjectType({
             args: { category: { type: GraphQLString } },
             resolve(parent, args){
                 return Dish.find({'category':args.category});
+            }
+        },
+        dishbysub:{
+            type: new GraphQLList(DishType),
+            args: { subcategory: { type: GraphQLString } },
+            resolve(parent, args){
+                return Dish.find({'subcategory':args.subcategory});
             }
         }
     }

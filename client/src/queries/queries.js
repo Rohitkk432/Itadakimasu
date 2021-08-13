@@ -38,4 +38,19 @@ const getSubCategoryQuery = gql`
     }
 `;
 
-export {getRestaurants,getRestQuery,getCategoryQuery,getSubCategoryQuery};
+const getDishbysubQuery = gql`
+    query GetDishbysub($subcategory: String!){
+        dishbysub(subcategory: $subcategory) {
+            id
+            name
+            showprice
+            baseprice
+            description
+            category
+            subcategory
+            restaurantId        
+        }
+    }
+`;
+
+export {getRestaurants,getRestQuery,getCategoryQuery,getSubCategoryQuery,getDishbysubQuery};

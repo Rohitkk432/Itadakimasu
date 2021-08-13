@@ -65,7 +65,7 @@ function Restpage(params) {
                         {   
                             params.getCategoryQuery.categories?.map((_data,idx)=>{
                                 if(!categories.includes(_data.category)){
-                                    if(!categories){setActivecat(_data.category);}
+                                    if(categories===[]){setActivecat(_data.category);}
                                     categories.push(_data.category);
                                     return(
                                         <div key={idx}>
@@ -90,14 +90,12 @@ function Restpage(params) {
             </div>
             <div className="rightsection">
                 <div className="subcats">
-                    <Subcat category={(activecat)?(activecat):"Veg Pizza"}/>
+                    <Subcat category={(activecat)?(activecat):(categories[0])?categories[0]:"Veg Pizzas"}/>
                 </div>
             </div>
         </div>
     )
 }
-
-// export default Restpage;
 
 export default compose(
     graphql(getRestQuery, {
