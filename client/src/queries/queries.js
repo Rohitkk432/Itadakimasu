@@ -53,4 +53,35 @@ const getDishbysubQuery = gql`
     }
 `;
 
-export {getRestaurants,getRestQuery,getCategoryQuery,getSubCategoryQuery,getDishbysubQuery};
+const getCustomsQuery = gql`
+    query GetCustoms($id : String!){
+        customs(id: $id){
+            id
+            name
+            showprice
+            baseprice
+            description
+            customcatId1{
+                id
+                name
+                customlist{
+                    id
+                    name
+                    price
+                }
+            }
+            customcatId2{
+                id
+                name
+                customlist{
+                    id
+                    name
+                    price
+                }
+            }
+        }
+    }
+`;
+
+export {getRestaurants,getRestQuery,getCategoryQuery
+    ,getSubCategoryQuery,getDishbysubQuery,getCustomsQuery};

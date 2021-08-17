@@ -1,4 +1,8 @@
 import {React,useState} from 'react';
+import './subcatsingle.css'
+
+//components
+import CustomModal from '../customization/custommodal';
 
 //material UI
 import {List,ListItem,ListItemText,Collapse} from '@material-ui/core';
@@ -50,14 +54,20 @@ function Subcatsingle(params) {
                         return(
                             <div key={idx}>
                                 <List component="div" disablePadding>
-                                    <Dish button>
-                                        <ListItemText primary={_data.name} />
+                                    <Dish>
+                                        <ListItemText primary={
+                                            <div className="dishinfo">
+                                                <div>{_data.name}</div>
+                                                <div>{_data.showprice}</div>
+                                            </div>
+                                        } />
+                                        <CustomModal dishId={_data.id} />
                                     </Dish>
                                 </List>
                             </div>
                         )
                     })
-                }                
+                }
             </Collapse>
         </>
     )

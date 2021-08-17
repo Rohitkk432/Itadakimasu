@@ -10,7 +10,6 @@ const {
     GraphQLObjectType,
     GraphQLString,
     GraphQLSchema,
-    // GraphQLID,
     GraphQLInt,
     GraphQLList,
     // GraphQLNonNull
@@ -32,6 +31,11 @@ const CustomcatType = new GraphQLObjectType({
     fields: ( ) => ({
         id: { type: GraphQLString },
         name: { type: GraphQLString },
+        customlist:{
+            type: new GraphQLList(CustomizationType),
+            resolve(parent, args){
+                return Customization.find({customcatId:parent.id});
+        }}
     })
 });
 
@@ -41,7 +45,6 @@ const CustomizationType = new GraphQLObjectType({
         id: { type: GraphQLString },
         name: { type: GraphQLString },
         price: { type: GraphQLInt },
-        //left
     })
 });
 
@@ -55,6 +58,8 @@ const DishType = new GraphQLObjectType({
         description: { type: GraphQLString },
         category: { type: GraphQLString },
         subcategory: { type: GraphQLString },
+        customcatId1: { type: GraphQLString },
+        customcatId2: { type: GraphQLString },
         restaurantId: { type: GraphQLString }
     })
 });
@@ -73,24 +78,35 @@ const SubCategoryType = new GraphQLObjectType({
     })
 });
 
-// const categoryType = new GraphQLObjectType({
-//     name: 'Category',
-//     fields: ( ) => ({
-//         id: { type: GraphQLID },
-//         name: { type: GraphQLString },
-//     })
-// });
+const CustomsType = new GraphQLObjectType({
+    name: 'Customs',
+    fields: ( ) => ({
+        id: { type: GraphQLString },
+        name: { type: GraphQLString },
+        showprice: { type: GraphQLInt },
+        baseprice: { type: GraphQLInt },
+        description: { type: GraphQLString },
+        category: { type: GraphQLString },
+        subcategory: { type: GraphQLString },
+        restaurantId: { type: GraphQLString },
+        customcatId1:{
+            type: CustomcatType,
+            resolve(parent, args){
+                return Customcat.findById(parent.customcatId1);
+            }},
+        customcatId2:{
+            type: CustomcatType,
+            resolve(parent, args){
+                return Customcat.findById(parent.customcatId2);
+            }}
+    })
+});
+
+
 
 const RootQuery = new GraphQLObjectType({
     name: 'RootQueryType',
     fields: {
-        // author: {
-        //     type: AuthorType,
-        //     args: { id: { type: GraphQLID } },
-        //     resolve(parent, args){
-        //         return Author.findById(args.id);
-        //     }
-        // },
         restaurant:{
             type: RestaurantType,
             args: { id: { type: GraphQLString } },
@@ -141,6 +157,13 @@ const RootQuery = new GraphQLObjectType({
             args: { subcategory: { type: GraphQLString } },
             resolve(parent, args){
                 return Dish.find({'subcategory':args.subcategory});
+            }
+        },
+        customs:{
+            type: CustomsType,
+            args: { id: { type: GraphQLString } },
+            resolve(parent, args){
+                return Dish.findById(args.id);
             }
         }
     }
