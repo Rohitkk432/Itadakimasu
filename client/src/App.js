@@ -2,8 +2,11 @@ import React from "react";
 import './App.css';
 
 //components
-import Nav from "./components/nav";
-import Console from "./components/console";
+import Mainpage from "./components/mainpage";
+import Loginpage from "./components/loginpage";
+
+//React-router
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 //graphql Apollo client imports 
 import ApolloClient from 'apollo-boost';
@@ -17,10 +20,12 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <div className="App">
-        <Nav/>
-        <Console/>
-      </div>
+      <Router>
+        <div className="App">
+          <Route path="/" exact component={Loginpage} />
+          <Route path="/home" exact component={Mainpage} />
+        </div>
+      </Router>
     </ApolloProvider> 
   );
 }

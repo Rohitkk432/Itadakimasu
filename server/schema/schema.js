@@ -3,6 +3,7 @@ const Restaurant = require('../models/restaurant');
 const Dish = require('../models/dish');
 const Customcat = require('../models/customcat');
 const Customization = require('../models/customization');
+const User = require('../models/user')
 
 const _ = require('lodash');
 
@@ -14,6 +15,17 @@ const {
     GraphQLList,
     // GraphQLNonNull
 } = graphql;
+
+//Types
+
+const UserType = new GraphQLObjectType({
+    name: 'User',
+    fields: () => ({
+        id: { type: GraphQLString },
+        name: { type: GraphQLString },
+        email: { type: GraphQLString },
+    })
+});
 
 const RestaurantType = new GraphQLObjectType({
     name: 'Restaurant',
@@ -103,17 +115,12 @@ const CustomsType = new GraphQLObjectType({
 });
 
 
+//Queries and Mutations
 
 const RootQuery = new GraphQLObjectType({
     name: 'RootQueryType',
     fields: {
-        restaurant:{
-            type: RestaurantType,
-            args: { id: { type: GraphQLString } },
-            resolve(parent, args){
-                return Restaurant.findById(args.id);
-            }
-        },
+        //All Data of tables
         restaurants: {
             type: new GraphQLList(RestaurantType),
             resolve(parent, args){
@@ -136,6 +143,28 @@ const RootQuery = new GraphQLObjectType({
             type: new GraphQLList(DishType),
             resolve(parent, args){
                 return Dish.find({});
+            }
+        },
+        users: {
+            type: new GraphQLList(UserType),
+            resolve(parent, args){
+                return User.find({});
+            }
+        },
+
+        //Specific Data
+        user:{
+            type: UserType,
+            args: { email: { type: GraphQLString } },
+            resolve(parent, args){
+                return User.findOne({email:args.email});
+            }
+        },
+        restaurant:{
+            type: RestaurantType,
+            args: { id: { type: GraphQLString } },
+            resolve(parent, args){
+                return Restaurant.findById(args.id);
             }
         },
         categories:{
@@ -172,6 +201,20 @@ const RootQuery = new GraphQLObjectType({
 const Mutation = new GraphQLObjectType({
     name: 'Mutation',
     fields: {
+        addUser: {
+            type: UserType,
+            args: {
+                name: { type: GraphQLString },
+                email : { type:GraphQLString }
+            },
+            resolve(parent, args){
+                let user = new User({
+                    name: args.name,
+                    email : args.email,
+                });
+                return user.save();
+            }
+        },
         addRestaurant: {
             type: RestaurantType,
             args: {

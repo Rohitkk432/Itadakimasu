@@ -1,0 +1,13 @@
+.loginpage {
+    width: 100vw;
+    height: 100vh;
+    /* background: url("https://res.cloudinary.com/rohitkk432/image/upload/v1629226442/Itadakimasu_ez2xup.png"); */
+}
+
+.loginbtn {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

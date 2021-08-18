@@ -2,7 +2,7 @@ import {React,useState} from 'react';
 import './left.css';
 
 //components
-import Restpage from './restaurant/restpage';
+import Restpage from '../restaurant/restpage';
 
 //Material UI
 import {TextField,Card,CardContent,CardActions,Button} from '@material-ui/core';
@@ -11,7 +11,7 @@ import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
 
 //graphql
 import { graphql } from 'react-apollo';
-import { getRestaurants } from '../queries/queries';
+import { getRestaurants } from '../../queries/queries';
 
 function Left(params) {
 

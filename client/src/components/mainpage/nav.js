@@ -1,5 +1,8 @@
 import React from 'react';
 
+//components
+import SignoutButton from '../utils/signoutbutton'
+
 //material UI
 import { BottomNavigation, BottomNavigationAction } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
@@ -45,6 +48,7 @@ function Nav() {
                 <NavLink label="Delivery" value="Delivery" icon={<LocationOnIcon />} />
                 <NavLink label="checkout" value="checkout" icon={<ReceiptIcon />} />
             </NavContainer>
+            <SignoutButton/>
         </>
     )
 }

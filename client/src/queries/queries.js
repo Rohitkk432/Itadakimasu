@@ -1,5 +1,33 @@
 import { gql } from 'apollo-boost';
 
+const getUsersQuery = gql`
+    {
+        users{
+            name
+            id
+            email
+        }
+    }
+`;
+const getUserQuery = gql`
+    query GetUser($email: String!){
+        user(email: $email) {
+            name
+            email
+            id
+        }
+    }
+`;
+const addUserMutation = gql`
+    mutation AddUser($name: String!, $email: String!){
+        addUser(name: $name, email: $email){
+            name
+            email
+            id
+        }
+    }
+`;
+
 const getRestaurants = gql`
     {
         restaurants{
@@ -83,5 +111,5 @@ const getCustomsQuery = gql`
     }
 `;
 
-export {getRestaurants,getRestQuery,getCategoryQuery
-    ,getSubCategoryQuery,getDishbysubQuery,getCustomsQuery};
+export {getRestaurants,getRestQuery,getCategoryQuery,getSubCategoryQuery,getUsersQuery,
+    getDishbysubQuery,getCustomsQuery,getUserQuery,addUserMutation};
