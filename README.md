@@ -84,7 +84,7 @@ $ cd ResouceHub
 1. Tried to use Graphql still havent learned or unleashed any high level of it just used it in a basic way.
 2. Will learn and try using other tools like Hasura , etc in future projects to use graphql efficiently.
 3. Had never used mongodb before so it was a new thing to try which was a rather nice experience using graphql.
-4. Eplored UI frameworks and tried using it (used MAterial UI).
+4. Eplored UI frameworks and tried using it (used Material UI).
 
 ## Snapshots
 
