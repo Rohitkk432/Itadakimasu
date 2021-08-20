@@ -55,7 +55,9 @@ $ cd ResouceHub
 3. After that one will be introduced to restaurants menu divided by category which can be choosed from left tab.
 4. After choosing category dishes are seperated under subcategories.
 5. One can choose dish that they want to order by tapping on "+" and choosing customizations and adding it to cart.
+<br />
 ------Further steps not implemented yet------
+<br />
 6. Your orders list will be visible on right side tab in Desktop view.
 7. And after choosing all dishes one desired he can click on checkout button in right tab or go to orders tab using nav bar.
 8. And place the order (order would be accepted, cooked,  dispatched and delivered by specific time hardcoded as dummy delivery).
