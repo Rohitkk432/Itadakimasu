@@ -29,10 +29,10 @@ Follow these steps to install this project directory:
 
 ```
 # clone the repo
-$ git clone https://github.com/Rohitkk432/ResourceHub.git
+$ git clone https://github.com/Rohitkk432/Itadakimasu.git
 
 # go into app's directory:
-$ cd ResouceHub
+$ cd Itadakimasu
 
 ```
 
