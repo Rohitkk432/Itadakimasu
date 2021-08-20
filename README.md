@@ -50,17 +50,15 @@ $ cd ResouceHub
 3. One pull request should cater to only one change. *A change may include multiple file changes that are essential to solving the issue/change.
 
 ## How to use?
-1. Login using BITS Mail.
-2. You can search and choose the restaurant (currently 5 restaurants available).
-3. After that one will be introduced to restaurants menu divided by category which can be choosed from left tab.
-4. After choosing category dishes are seperated under subcategories.
-5. One can choose dish that they want to order by tapping on "+" and choosing customizations and adding it to cart.
-<br />
-------Further steps not implemented yet------
-<br />
-6. Your orders list will be visible on right side tab in Desktop view.
-7. And after choosing all dishes one desired he can click on checkout button in right tab or go to orders tab using nav bar.
-8. And place the order (order would be accepted, cooked,  dispatched and delivered by specific time hardcoded as dummy delivery).
+1. Login using BITS Mail.<br />
+2. You can search and choose the restaurant (currently 5 restaurants available).<br />
+3. After that one will be introduced to restaurants menu divided by category which can be choosed from left tab.<br />
+4. After choosing category dishes are seperated under subcategories.<br />
+5. One can choose dish that they want to order by tapping on "+" and choosing customizations and adding it to cart.<br />
+------Further steps not implemented yet------<br />
+6. Your orders list will be visible on right side tab in Desktop view.<br />
+7. And after choosing all dishes one desired he can click on checkout button in right tab or go to orders tab using nav bar.<br />
+8. And place the order (order would be accepted, cooked,  dispatched and delivered by specific time hardcoded as dummy delivery).<br />
 
 ## Current Implementations
 1. Login using Google Integrated Login.
