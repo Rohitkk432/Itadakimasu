@@ -28,6 +28,21 @@ const addUserMutation = gql`
     }
 `;
 
+const addOrderMutation = gql`
+    mutation addOrder($userId : String!, $dishId : String!, $customizationId1 : String!, $customizationId2 : String!, $showprice : String!, $finalprice : String!, $status: String!){
+        addOrder(userId : $userId, dishId : $dishId, customizationId1 : $customizationId1, customizationId2 : $customizationId2, showprice: $showprice, finalprice: $finalprice, status: $status){
+            id
+            userId
+            dishId
+            customizationId1
+            customizationId2
+            showprice
+            finalprice
+            status
+        }
+    }
+`;
+
 const getRestaurants = gql`
     {
         restaurants{
@@ -112,4 +127,4 @@ const getCustomsQuery = gql`
 `;
 
 export {getRestaurants,getRestQuery,getCategoryQuery,getSubCategoryQuery,getUsersQuery,
-    getDishbysubQuery,getCustomsQuery,getUserQuery,addUserMutation};
+    getDishbysubQuery,getCustomsQuery,getUserQuery,addUserMutation,addOrderMutation};

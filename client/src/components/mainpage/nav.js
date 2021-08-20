@@ -47,8 +47,8 @@ function Nav() {
                 <NavLink label="Favorites" value="favorites" icon={<FavoriteIcon />} />
                 <NavLink label="Delivery" value="Delivery" icon={<LocationOnIcon />} />
                 <NavLink label="checkout" value="checkout" icon={<ReceiptIcon />} />
+                <SignoutButton/>
             </NavContainer>
-            <SignoutButton/>
         </>
     )
 }

@@ -31,14 +31,12 @@ function Loginpage(params) {
     async function loggerfunc(loggeremail,loggername){
         if(params.getUsersQuery.users.length!==0){
             params.getUsersQuery.users.map((_data)=>{
-                console.log("map");
                 if(_data.email===loggeremail){
                     console.log("if");
                     currentuser=_data;
                     return 0;
                 }
                 else{
-                    console.log("else");
                     currentuser = params.addUserMutation({
                         variables: {
                             name: loggername,
@@ -50,7 +48,6 @@ function Loginpage(params) {
             })
         }
         else{
-            console.log("outer else");
             currentuser = await params.addUserMutation({
                 variables: {
                     email: loggeremail,

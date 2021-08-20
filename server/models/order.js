@@ -6,8 +6,8 @@ const OrderSchema = new Schema({
     dishId: String,
     customizationId1: String,
     customizationId2: String,
-    showprice: Number,
-    finalprice: Number,
+    showprice: String,
+    finalprice: String,
     status: String
 });
 

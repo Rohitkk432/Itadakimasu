@@ -3,7 +3,8 @@ const Restaurant = require('../models/restaurant');
 const Dish = require('../models/dish');
 const Customcat = require('../models/customcat');
 const Customization = require('../models/customization');
-const User = require('../models/user')
+const User = require('../models/user');
+const Order = require('../models/order')
 
 const _ = require('lodash');
 
@@ -24,6 +25,20 @@ const UserType = new GraphQLObjectType({
         id: { type: GraphQLString },
         name: { type: GraphQLString },
         email: { type: GraphQLString },
+    })
+});
+
+const OrderType = new GraphQLObjectType({
+    name: 'Order',
+    fields: () => ({
+        id: { type: GraphQLString },
+        userId: { type: GraphQLString },
+        dishId: { type: GraphQLString },
+        customizationId1: { type : GraphQLString },
+        customizationId2: { type : GraphQLString },
+        showprice: { type: GraphQLInt },
+        finalprice: { type: GraphQLInt },
+        status: { type: GraphQLString }
     })
 });
 
@@ -160,6 +175,13 @@ const RootQuery = new GraphQLObjectType({
                 return User.findOne({email:args.email});
             }
         },
+        order:{
+            type: OrderType,
+            args: { userId: { type: GraphQLString } },
+            resolve(parent, args){
+                return Order.find({userId:args.userId});
+            }
+        },
         restaurant:{
             type: RestaurantType,
             args: { id: { type: GraphQLString } },
@@ -213,6 +235,30 @@ const Mutation = new GraphQLObjectType({
                     email : args.email,
                 });
                 return user.save();
+            }
+        },
+        addOrder: {
+            type: OrderType,
+            args: {
+                userId: { type: GraphQLString },
+                dishId: { type:GraphQLString },
+                customizationId1: { type : GraphQLString },
+                customizationId2: { type : GraphQLString },
+                showprice: { type: GraphQLString },
+                finalprice: { type: GraphQLString },
+                status: { type: GraphQLString }
+            },
+            resolve(parent, args){
+                let order = new Order({
+                    userId : args.userId,
+                    dishId : args.dishId,
+                    customizationId1 : args.customizationId1,
+                    customizationId2 : args.customizationId2,
+                    showprice : args.showprice,
+                    finalprice : args.finalprice,
+                    status : args.status
+                });
+                return order.save();
             }
         },
         addRestaurant: {
