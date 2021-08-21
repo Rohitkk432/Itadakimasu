@@ -10,16 +10,16 @@ import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 
 //graphql
 import { graphql} from 'react-apollo';
-import { getCustomsQuery,addOrderMutation } from '../../queries/queries';
+import { getCustomsQuery,addOrderMutation,getSpecificOrdersQuery } from '../../queries/queries';
 import {flowRight as compose} from 'lodash';
 
 function CustomModal(params) {
     const [open, setOpen] = useState(false);
 
-    // const [custom1id, setCustom1id]=useState(params?.data?.customs?.customcatId1?.customlist?.[0]?.id);
-    // const [custom2id, setCustom2id]=useState('61141d4f8e54f94e839a3d52');
+    // ! custom1id not holding value on preselected custom. and post throwing error as a result.
+    //TODO somehow fix this error
 
-    let custom1id=params?.data?.customs?.customcatId1?.customlist?.[0]?.id;
+    let custom1id=(params?.data?.customs?.customcatId1?.customlist?.[0]?.id)?(params?.data?.customs?.customcatId1?.customlist?.[0]?.id):'61141d4f8e54f94e839a3d52';
     let custom1price=params?.data?.customs?.customcatId1?.customlist?.[0]?.price;
     let custom2id='61141d4f8e54f94e839a3d52';
     let custom2price=0;
@@ -60,8 +60,15 @@ function CustomModal(params) {
                 finalprice: `${params.getCustomsQuery.customs.baseprice+custom1price+custom2price}`,
                 status: "pending"
             },
+            refetchQueries: [{ 
+                query: getSpecificOrdersQuery,
+                variables: {
+                    userId: currentuser.id,
+                    status: "pending",
+                }    
+            }]
         });
-        console.log(_order);
+        handleClose();
     };  
 
     //Material UI styling

@@ -43,6 +43,35 @@ const addOrderMutation = gql`
     }
 `;
 
+const getSpecificOrdersQuery = gql`
+    query GetCurrentOrders($userId : String!, $status : String!){
+        order(userId: $userId, status: $status){
+            userId
+            dishId
+            status
+            showprice
+            finalprice
+            id
+            dishinfo{
+                id
+                name
+            }
+        }
+    }
+`;
+
+const deleteOrder = gql`
+    mutation deleteOrder($id : String!){
+        deleteOrder(id:$id){
+            id
+            userId
+            dishinfo{
+                name
+            }
+        }
+    }
+`;
+
 const getRestaurants = gql`
     {
         restaurants{
@@ -127,4 +156,5 @@ const getCustomsQuery = gql`
 `;
 
 export {getRestaurants,getRestQuery,getCategoryQuery,getSubCategoryQuery,getUsersQuery,
-    getDishbysubQuery,getCustomsQuery,getUserQuery,addUserMutation,addOrderMutation};
+    getDishbysubQuery,getCustomsQuery,getUserQuery,getSpecificOrdersQuery,addUserMutation,
+    addOrderMutation,deleteOrder};

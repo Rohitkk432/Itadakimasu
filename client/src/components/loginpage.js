@@ -29,32 +29,35 @@ function Loginpage(params) {
     }
 
     async function loggerfunc(loggeremail,loggername){
-        if(params.getUsersQuery.users.length!==0){
-            params.getUsersQuery.users.map((_data)=>{
-                if(_data.email===loggeremail){
-                    console.log("if");
-                    currentuser=_data;
-                    return 0;
-                }
-                else{
-                    currentuser = params.addUserMutation({
-                        variables: {
-                            name: loggername,
-                            email: loggeremail,
-                        },
-                    });
-                    return 0;
-                }
-            })
-        }
-        else{
-            currentuser = await params.addUserMutation({
-                variables: {
-                    email: loggeremail,
-                    name: loggername,
-                },
-            });
-            return 0;
+        if(params.getUsersQuery.users){
+            if(params.getUsersQuery.users.length!==0){
+                params.getUsersQuery.users.map((_data)=>{
+                    if(_data.email===loggeremail){
+                        console.log("if");
+                        currentuser=_data;
+                        console.log(_data);
+                        return 0;
+                    }
+                    else{
+                        currentuser = params.addUserMutation({
+                            variables: {
+                                name: loggername,
+                                email: loggeremail,
+                            },
+                        });
+                        return 0;
+                    }
+                })
+            }
+            else{
+                currentuser = await params.addUserMutation({
+                    variables: {
+                        email: loggeremail,
+                        name: loggername,
+                    },
+                });
+                return 0;
+            }
         }
     }
 

@@ -36,9 +36,14 @@ const OrderType = new GraphQLObjectType({
         dishId: { type: GraphQLString },
         customizationId1: { type : GraphQLString },
         customizationId2: { type : GraphQLString },
-        showprice: { type: GraphQLInt },
-        finalprice: { type: GraphQLInt },
-        status: { type: GraphQLString }
+        showprice: { type: GraphQLString },
+        finalprice: { type: GraphQLString },
+        status: { type: GraphQLString },
+        dishinfo:{
+            type: DishType,
+            resolve(parent, args){
+                return Dish.findById(parent.dishId);
+            }},
     })
 });
 
@@ -176,10 +181,13 @@ const RootQuery = new GraphQLObjectType({
             }
         },
         order:{
-            type: OrderType,
-            args: { userId: { type: GraphQLString } },
+            type: new GraphQLList(OrderType),
+            args: { 
+                userId: { type: GraphQLString },
+                status: { type: GraphQLString },
+            },
             resolve(parent, args){
-                return Order.find({userId:args.userId});
+                return Order.find({userId:args.userId,status:args.status});
             }
         },
         restaurant:{
@@ -261,24 +269,15 @@ const Mutation = new GraphQLObjectType({
                 return order.save();
             }
         },
-        addRestaurant: {
-            type: RestaurantType,
+        deleteOrder: {
+            type: OrderType,
             args: {
-                name: { type: GraphQLString },
-                location: { type: GraphQLString },
-                rating: { type: GraphQLString },
-                pricing: { type: GraphQLString },
+                id : { type : GraphQLString },
             },
             resolve(parent, args){
-                let restaurant = new Restaurant({
-                    name: args.name,
-                    location: args.location,
-                    rating: args.rating,
-                    pricing: args.pricing,
-                });
-                return restaurant.save();
+                return Order.findByIdAndDelete(args.id);
             }
-        },
+        }
     }
 });
 
