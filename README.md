@@ -1,4 +1,4 @@
-<img width="100" alt="app-logo" src="https://res.cloudinary.com/rohitkk432/image/upload/v1629486411/Bon-Appetit_logo_b94haw.png">
+<img width="100" alt="app-logo" src="https://res.cloudinary.com/rohitkk432/image/upload/v1629478861/itadakimasu_logo_wy6qk9.png">
 
 # Itadakimasu
 DevSoc Project for Core reviews
