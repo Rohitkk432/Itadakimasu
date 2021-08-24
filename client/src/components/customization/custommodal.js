@@ -50,7 +50,7 @@ function CustomModal(params) {
             custom2price=0;
         }
 
-        const _order= await params.addOrderMutation({
+        await params.addOrderMutation({
             variables: {
                 userId: currentuser.id,
                 dishId: params.getCustomsQuery.customs.id,

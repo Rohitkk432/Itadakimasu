@@ -275,7 +275,7 @@ const Mutation = new GraphQLObjectType({
                 id : { type : GraphQLString },
             },
             resolve(parent, args){
-                return Order.findByIdAndDelete(args.id);
+                return Order.findByIdAndRemove(args.id);
             }
         }
     }
