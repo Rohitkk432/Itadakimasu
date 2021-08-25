@@ -1,6 +1,6 @@
 # example netlify.toml
 [build]
-  command = "CI = npm run build"
+  command = "CI=true && npm run build"
   publish = "./build"
 
   ## Uncomment to use this redirect for Single Page Applications like create-react-app.
