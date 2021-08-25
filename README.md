@@ -3,6 +3,8 @@
 # Itadakimasu
 DevSoc Project for Core reviews
 
+Deployed site - https://itadakimasu432.netlify.app/
+
 ## About
 Food delivery website based in Goa.
 
