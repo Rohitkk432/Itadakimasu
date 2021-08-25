@@ -28,7 +28,7 @@ function Right() {
             <div className="righthead">Orders</div>
             <Orders userId={currentuser?.id} status="pending" totaller={[totalbill,setTotalbill]} 
             hider={false}/>
-            <Link to='/checkout'>
+            <Link style={{textDecoration:"none",width:"100%"}} to='/checkout'>
                 <Checkoutbtn variant="outlined" color="secondary">
                     <AccountBalanceWalletOutlinedIcon/>Checkout
                 </Checkoutbtn>
