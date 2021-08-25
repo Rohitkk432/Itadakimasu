@@ -55,20 +55,22 @@ $ cd Itadakimasu
 3. After that one will be introduced to restaurants menu divided by category which can be choosed from left tab.<br />
 4. After choosing category dishes are seperated under subcategories.<br />
 5. One can choose dish that they want to order by tapping on "+" and choosing customizations and adding it to cart.<br />
-------Further steps not implemented yet------<br />
 6. Your orders list will be visible on right side tab in Desktop view.<br />
-7. And after choosing all dishes one desired he can click on checkout button in right tab or go to orders tab using nav bar.<br />
-8. And place the order (order would be accepted, cooked,  dispatched and delivered by specific time hardcoded as dummy delivery).<br />
+7. And after choosing all dishes one desired they can click on checkout button in right tab or go to checkout tab using nav bar.<br />
+8. And place the order then you will be redirected to delivery page.<br />
+------Further steps not implemented yet------<br />
+8. Delivery page will show time for cooking, dispatch and delivery.<br />
 
 ## Current Implementations
 1. Login using Google Integrated Login.
 2. Searching restaurants and navigating to dishes.
 3. Choosing customizations and adding to cart.
+4. Showing orders in a tab on the right side.
+5. Confirming order on checkout page.
 
 ## Pending Implementations
-1. Showing orders in a tab on the right side.
-2. Confirming order on orders page and delivery.
-3. Mobile view.
+1. Delivery page.
+2. Mobile view.
 
 ## Future Implementations
 1. Widening search to dishes rather than just restaurants , and upon clicking it directly navigating to that dish in its restaurant page.
@@ -79,6 +81,7 @@ $ cd Itadakimasu
 1. Started the project using PERN stack and using self writted css styling you can check that out here - https://github.com/Rohitkk432/Bon-Appetit.git
 2. Wanted to try something new then came across a graphql video tutorial and started again from scratch using MERNG that is MERN stack using graphql to query and fetch.
 3. Wanted to make a better looking UI and i am not so good at it without a UI designer on my team as it is a solo project. So used Material Ui this time rather than regular CSS that i am comfortable with . (went through Fluent UI, React-Bootstrap , Material Ui before then choose to use Material UI).
+4. Deployed server on heroku and client on netlify without issues this time last project faced cors issues.
 
 ## Things Played around with
 1. Tried to use Graphql still havent learned or unleashed any high level of it just used it in a basic way.
@@ -89,16 +92,23 @@ $ cd Itadakimasu
 ## Snapshots
 
 ### Login Page
-![image](https://user-images.githubusercontent.com/74586376/130265903-b1c23ac6-7f9a-4110-9dda-bbfe44e25517.png)
+![image](https://user-images.githubusercontent.com/74586376/130772109-3193bfde-308e-47fe-aca2-dd4ef13e2fd5.png)
 
-### Home page (search)
-![image](https://user-images.githubusercontent.com/74586376/130266456-12176e84-5919-499d-be49-59897aeef670.png)
+### Home page (search) -- selected dishes on rightside
+![image](https://user-images.githubusercontent.com/74586376/130772275-409c27ae-12c7-4302-ab72-7bb2298d04f2.png)
 
 ### Restaurant page
-![image](https://user-images.githubusercontent.com/74586376/130266580-dee5e394-1bcb-42ec-892d-285ff0760da3.png)
+![image](https://user-images.githubusercontent.com/74586376/130772388-b6439346-6d8f-4771-8096-935630d134a6.png)
 
 ### Customization choosing modal
-![image](https://user-images.githubusercontent.com/74586376/130266663-298da712-2793-4a6e-9042-1bc8946b50b5.png)
+![image](https://user-images.githubusercontent.com/74586376/130772448-a906fc29-9d96-4530-8531-80fc3266a77d.png)
+
+### Checkout page
+![image](https://user-images.githubusercontent.com/74586376/130772522-70ad8692-62c4-4c15-b732-49236454c172.png)
+
+### Delivery page -- after checkout (incomplete)
+![image](https://user-images.githubusercontent.com/74586376/130772636-528fe3c2-6994-4109-9b00-7ac35f6dc36e.png)
+
 
 ### Social Media
 
