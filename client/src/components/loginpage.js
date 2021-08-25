@@ -31,21 +31,32 @@ function Loginpage(params) {
     async function loggerfunc(loggeremail,loggername){
         if(params.getUsersQuery.users){
             if(params.getUsersQuery.users.length!==0){
+                let res=0;
                 params.getUsersQuery.users.map((_data)=>{
                     if(_data.email===loggeremail){
                         currentuser=_data;
+                        res=1;
                         return 0;
                     }
                     else{
-                        currentuser = params.addUserMutation({
-                            variables: {
-                                name: loggername,
-                                email: loggeremail,
-                            },
-                        });
-                        return 0;
+                        if(res===1){
+                            return 0;
+                        }
+                        else{
+                            res=2;
+                            return 0;
+                        }
                     }
-                })
+                });
+                if(res===2 || res===0){
+                    currentuser = params.addUserMutation({
+                        variables: {
+                            name: loggername,
+                            email: loggeremail,
+                        },
+                    });
+                    return 0;
+                }
             }
             else{
                 currentuser = await params.addUserMutation({
