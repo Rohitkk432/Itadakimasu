@@ -1,4 +1,4 @@
-import React from 'react';
+import {React,useEffect,useCallback} from 'react';
 import '../mainpage/right.css';
 import { Scrollbars } from 'react-custom-scrollbars';
 
@@ -13,6 +13,8 @@ import { getSpecificOrdersQuery,deleteOrder } from '../../queries/queries';
 import {flowRight as compose} from 'lodash';
 
 function Orders(params) {
+
+    const [totalbill,setTotalbill] = params.totaller;
 
     // ! error after execution of this function (not breaking) will need to find a way to not throw error
 
@@ -31,11 +33,23 @@ function Orders(params) {
         })
     }
 
+    const totaller=useCallback(()=>{
+        let _totalbill=0;
+        params?.getSpecificOrdersQuery?.order?.map((_data)=>{
+            _totalbill+=parseInt(_data?.finalprice);
+            return 0;
+        })
+        setTotalbill(_totalbill);
+    },[params?.getSpecificOrdersQuery?.order,setTotalbill])
+
+    useEffect(()=>{
+        totaller();
+    },[params?.getSpecificOrdersQuery?.order,totaller])
 
     const RestResults = withStyles({
         root:{
             margin:"0.5rem",
-            width:"22rem",
+            width:"90%",
             height:"3.5rem",
             borderRadius:"4px",
             display:"flex",
@@ -68,9 +82,11 @@ function Orders(params) {
                                     <div>{_data?.finalprice}</div>
                                 </ResultInfo>
                                 <CardActions>
-                                    <Button onClick={()=>deleteTheOrder(_data?.id)} variant="outlined" color="secondary">
-                                        <RemoveIcon/>
-                                    </Button>
+                                    <div className={(params.hider)?"hideit":"nohide"}>
+                                        <Button onClick={()=>deleteTheOrder(_data?.id)} variant="outlined" color="secondary">
+                                            <RemoveIcon/>
+                                        </Button>
+                                    </div>
                                 </CardActions>
                             </RestResults>
                         </div>

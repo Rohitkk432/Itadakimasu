@@ -1,0 +1,57 @@
+.orderscheckoutpage {
+    width: 100vw;
+    height: 90vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.listsoforders {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.orderlisthead {
+    font-size: xx-large;
+    margin: 1rem;
+    font-weight: 500;
+}
+
+.orderslistcheckoutpage {
+    width: 70%;
+    height: 100%;
+}
+
+.payment {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 40%;
+}
+.paymentcard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 20rem;
+    width: 15rem;
+    box-shadow: 0 3px 5px 2px rgba(255, 105, 135, 0.3);
+    border-radius: 10px;
+}
+.priceofpayment {
+    font-size: x-large;
+}
+.paymenttaxinfo {
+    width: 90%;
+    font-size: large;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+}

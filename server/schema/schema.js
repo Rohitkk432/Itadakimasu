@@ -269,6 +269,15 @@ const Mutation = new GraphQLObjectType({
                 return order.save();
             }
         },
+        payOrder: {
+            type: OrderType,
+            args: {
+                userId: { type: GraphQLString },
+            },
+            resolve(parent, args){
+                return Order.updateMany({userId:args.userId,status:'pending'},{$set:{status:'payed'}})
+            }
+        },
         deleteOrder: {
             type: OrderType,
             args: {

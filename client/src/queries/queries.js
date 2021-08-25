@@ -72,6 +72,14 @@ const deleteOrder = gql`
     }
 `;
 
+const  payOrder = gql`
+    mutation payOrder($userId : String!){
+        payOrder(userId:$userId){
+            id
+        }
+    }
+`;
+
 const getRestaurants = gql`
     {
         restaurants{
@@ -157,4 +165,4 @@ const getCustomsQuery = gql`
 
 export {getRestaurants,getRestQuery,getCategoryQuery,getSubCategoryQuery,getUsersQuery,
     getDishbysubQuery,getCustomsQuery,getUserQuery,getSpecificOrdersQuery,addUserMutation,
-    addOrderMutation,deleteOrder};
+    addOrderMutation,deleteOrder,payOrder};

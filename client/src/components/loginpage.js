@@ -33,9 +33,7 @@ function Loginpage(params) {
             if(params.getUsersQuery.users.length!==0){
                 params.getUsersQuery.users.map((_data)=>{
                     if(_data.email===loggeremail){
-                        console.log("if");
                         currentuser=_data;
-                        console.log(_data);
                         return 0;
                     }
                     else{

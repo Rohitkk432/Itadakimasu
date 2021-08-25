@@ -1,4 +1,4 @@
-import React from 'react';
+import {React,useState} from 'react';
 import './right.css';
 import {currentuser} from '../loginpage';
 
@@ -12,6 +12,8 @@ import Orders from '../order/orders';
 
 function Right() {
 
+    const [totalbill,setTotalbill]=useState(0);
+
     const Checkoutbtn = withStyles({
         root:{
             width:"90%",
@@ -23,7 +25,8 @@ function Right() {
     return (
         <div className="right">
             <div className="righthead">Orders</div>
-            <Orders userId={currentuser?.id} status="pending" />
+            <Orders userId={currentuser?.id} status="pending" totaller={[totalbill,setTotalbill]} 
+            hider={false}/>
             <Checkoutbtn variant="outlined" color="secondary">
                 <AccountBalanceWalletOutlinedIcon/>Checkout
             </Checkoutbtn>

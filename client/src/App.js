@@ -4,6 +4,8 @@ import './App.css';
 //components
 import Mainpage from "./components/mainpage";
 import Loginpage from "./components/loginpage";
+import CheckoutPage from "./components/checkoutpage";
+import Deliverypage from "./components/deliverypage";
 
 //React-router
 import { BrowserRouter as Router, Route } from "react-router-dom";
@@ -25,6 +27,8 @@ function App() {
         <div className="App">
           <Route path="/" exact component={Loginpage} />
           <Route path="/home" exact component={Mainpage} />
+          <Route path="/checkout" exact component={CheckoutPage} />
+          <Route path="/delivery" exact component={Deliverypage} />
         </div>
       </Router>
     </ApolloProvider> 
