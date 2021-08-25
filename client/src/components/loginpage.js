@@ -65,7 +65,7 @@ function Loginpage(params) {
         <div className="loginpage" >
             <div className="loginbtn">
                 <GoogleLogin
-                    clientId="984297458880-30fb652n9c5c81ckaheak1hp7brv7qp4.apps.googleusercontent.com"
+                    clientId="613837933722-aa2cek4rpl3svh1od26c1a50msnvq7j8.apps.googleusercontent.com"
                     buttonText="Login using BITS mail"
                     prompt="select_account"
                     uxMode="popup"
