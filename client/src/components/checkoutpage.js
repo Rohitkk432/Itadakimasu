@@ -52,7 +52,7 @@ function CheckoutPage(params) {
             <Nav/>
             <div className="orderscheckoutpage">
                 <div className="listsoforders">
-                    <div className="orderlisthead">Orders</div>
+                    <div className="orderlisthead">Checkout</div>
                     <div className='orderslistcheckoutpage' >
                         <Orders userId={currentuser?.id} status="pending" totaller={[totalbill,setTotalbill]} hider={false} />
                     </div>

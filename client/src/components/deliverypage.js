@@ -15,7 +15,7 @@ function Deliverypage() {
             <Nav/>
             <div className="orderscheckoutpage">
                 <div className="listsoforders">
-                    <div className="orderlisthead">Orders</div>
+                    <div className="orderlisthead">Orders to be delivered soon</div>
                     <div className='orderslistcheckoutpage' >
                         <Orders userId={currentuser?.id} status="payed" totaller={[totalbill,setTotalbill]} hider={true} />
                     </div>
