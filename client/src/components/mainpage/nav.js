@@ -48,11 +48,11 @@ function Nav() {
                 <Link to='/home'>
                     <NavLink label="Recents" value="recents" icon={<HomeIcon />} />
                 </Link>
-                <Link to='/delivery'>
-                    <NavLink label="Delivery" value="Delivery" icon={<LocationOnIcon />} />
-                </Link>
                 <Link to='/checkout'>
                     <NavLink label="checkout" value="checkout" icon={<ReceiptIcon />} />
+                </Link>
+                <Link to='/delivery'>
+                    <NavLink label="Delivery" value="Delivery" icon={<LocationOnIcon />} />
                 </Link>
                 <SignoutButton/>
             </NavContainer>
