@@ -10,6 +10,7 @@ Food delivery website based in Goa.
 DEFIOS TESTING
 new change
 accept check
+string test
 
 ## Table of Contents
 - [Browser Support 🌐](#browser-support)
