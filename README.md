@@ -9,6 +9,7 @@ Deployed site - https://itadakimasu432.netlify.app/
 Food delivery website based in Goa.
 DEFIOS TESTING
 new change
+accept check
 
 ## Table of Contents
 - [Browser Support 🌐](#browser-support)
